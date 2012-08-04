@@ -6,6 +6,6 @@ bin/
 .project
 .settings/
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
