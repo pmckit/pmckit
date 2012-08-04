@@ -1,6 +1,9 @@
 *.class
 .gradle/
 build/
+.classpath
+.project
+.settings/
 # Package Files #
 *.jar
 *.war
