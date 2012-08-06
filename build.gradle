@@ -1,5 +1,5 @@
 
-
+def configDir = new File(rootDir, 'config').getAbsolutePath()
 
 subprojects {
     apply plugin: 'java'
@@ -9,7 +9,9 @@ subprojects {
 
 	checkstyle {
 		ignoreFailures true
+		configFile = new File( "$configDir/checkstyle/checkstyle.xml")
 	}
+
 
     group = 'org.pmckit'
     version = '0.1'
