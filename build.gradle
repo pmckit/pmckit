@@ -1,19 +1,51 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'checkstyle'
 
 
-repositories {
-    mavenCentral()
+
+subprojects {
+    apply plugin: 'java'
+	apply plugin: 'eclipse'
+	
+	apply plugin: 'checkstyle'
+
+	checkstyle {
+		ignoreFailures true
+	}
+
+    group = 'org.pmckit'
+    version = '0.1'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        testCompile "junit:junit:4.8.2"
+ 		runtime group: 'org.slf4j', name: 'slf4j-api', version: '1.6.1'
+    }
 }
-checkstyle {
-	ignoreFailures true
-}
-dependencies {
 
- testCompile(group: 'junit', name: 'junit', version: '4.10')
 
+project(':test') {
+    dependencies {
+        compile project(':helpers')
+    }
 }
+
+project(':model') {
+    dependencies {
+        compile project(':helpers')
+		testCompile project(':test')
+    }
+}
+
+project(':web') {
+	  apply plugin: 'war'
+	apply plugin : 'eclipse-wtp'
+    dependencies {
+        compile project(':model'), project(':helpers')
+		testCompile project(':test')
+    }
+}
+
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.1'
