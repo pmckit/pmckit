@@ -1,1 +1,1 @@
-include 'helpers','model','web','test'
+include 'helpers','api','model','web','test'
