@@ -12,7 +12,7 @@ buildscript {
 }
 
 
-apply plugin: 'Site'
+//apply plugin: 'Site'
 
 subprojects {
     apply plugin: 'java'
