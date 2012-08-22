@@ -1,10 +1,24 @@
 
 def configDir = new File(rootDir, 'config').getAbsolutePath()
 
+buildscript { 
+    repositories { 
+        mavenCentral()
+        mavenLocal()
+    } 
+    dependencies {
+        classpath 'com.breskeby:GradleSite:0.1-SNAPSHOT'
+    } 
+}
+
+
+apply plugin: 'Site'
+
 subprojects {
     apply plugin: 'java'
 	apply plugin: 'eclipse'
-	
+	apply plugin: 'pmd'
+	apply plugin: 'findbugs'
 	apply plugin: 'checkstyle'
 
 	checkstyle {
