@@ -18,7 +18,7 @@ subprojects {
     apply plugin: 'java'
 	apply plugin: 'eclipse'
 	apply plugin: 'pmd'
-	apply plugin: 'findbugs'
+//	apply plugin: 'findbugs'
 	apply plugin: 'checkstyle'
 
 	checkstyle {
@@ -26,6 +26,10 @@ subprojects {
 		configFile = new File( "$configDir/checkstyle/checkstyle.xml")
 	}
 
+//	eclipse {
+//		defaultOutputDir = file('build-eclipse')
+
+//	}
 
     group = 'org.pmckit'
     version = '0.1'
